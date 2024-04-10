@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+}
+
+main {
+    overflow: auto;
+    height: 1000px;
+    display: grid;
+    grid-template-rows: 1fr 2fr 2fr 1fr;
+    grid-template-columns: 10fr 1fr 3fr;
+    grid-template-areas:
+       "header header header"
+       "one one aside"
+       "four four four"
+       "footer footer footer";
+}
+
+header, section, aside, footer {
+    border: 1px solid red;
+}
+
+header {
+    background-color: darkblue;
+    grid-area: header;
+}
+
+.one {
+    background-color: green;
+    grid-area: one;
+}
+
+.four {
+    background-color: green;
+    grid-area: four;
+}
+
+aside {
+    background-color: orange;
+    grid-area: aside;
+}
+
+footer {
+    background-color: darkblue;
+    grid-area: footer;
+}
