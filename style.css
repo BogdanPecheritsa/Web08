@@ -4,48 +4,94 @@
     box-sizing: border-box;
 }
 
-body{
-    margin: 0 auto;
-}
-
 main {
+    display: flex;
+    flex-direction: column;
     overflow: auto;
-    height: 1000px;
-    display: grid;
-    grid-template-rows: 1fr 2fr 2fr 1fr;
-    grid-template-columns: 10fr 1fr 3fr;
-    grid-template-areas:
-       "header header header"
-       "one one aside"
-       "four four four"
-       "footer footer footer";
+    width: 75vw;
+    height: 120vh;
+    margin: 0 auto;
+    padding: 10px;
 }
 
-header, section, aside, footer {
-    border: 1px solid red;
+img {
+    border-radius: 20px;
 }
 
 header {
     background-color: darkblue;
-    grid-area: header;
+    display: grid;
+    height: 100px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
 }
 
 .one {
-    background-color: green;
-    grid-area: one;
+    overflow: hidden;
+    background-color: yellow;
+    height: 250px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 30fr 30fr 10fr;
+    grid-template-areas: "image1 image2 .";
 }
+
+.one .img1 {
+    grid-area: image1;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.one .img2 {
+    grid-area: image2;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.second {
+    overflow: hidden;
+    background-color: yellow;
+    height: 250px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 30fr 30fr 10fr;
+    grid-template-areas: "image3 image4 .";
+}
+
+
+.second .img3 {
+    grid-area: image3;
+    width: 100%;
+    height: 46%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.second .img4 {
+    grid-area: image4;
+    width: 100%;
+    height: 46%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
 
 .four {
-    background-color: green;
-    grid-area: four;
-}
-
-aside {
-    background-color: orange;
-    grid-area: aside;
+    background-color: red;
+    height: 200px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 footer {
     background-color: darkblue;
-    grid-area: footer;
+    height: 100px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
 }
