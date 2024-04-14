@@ -2,96 +2,276 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Heebo, sans-serif;
+    color: var(--white-text-color);
+}
+
+html {
+    --main-bg-color: #07beaa;
+    --elements-bg-color: #006a55;
+    --white-text-color: #EFEDED;
+    --border-radius-20px: 20px;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    width: 75vw;
-    height: 120vh;
+    display: grid;
+    gap: 5px;
+    width: 70vw;
     margin: 0 auto;
     padding: 10px;
+    background-color: var(--main-bg-color);
 }
 
-img {
-    border-radius: 20px;
+header, img, footer, .sections-with-text-container > div {
+    border-radius: var(--border-radius-20px);
+}
+
+header, footer {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 200px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    background-color: var(--elements-bg-color);
 }
 
 header {
-    background-color: darkblue;
-    display: grid;
-    height: 100px;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
-.one {
-    overflow: hidden;
-    background-color: yellow;
-    height: 250px;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 30fr 30fr 10fr;
-    grid-template-areas: "image1 image2 .";
+header > span::before {
+    content: "the_";
 }
 
-.one .img1 {
+header > span::after {
+    content: "_site";
+}
+
+.img-and-advertisement-container {
+    display: grid;
+    grid-template-rows: 250px 250px;
+    grid-template-columns: 7fr 7fr 3fr;
+    grid-template-areas:
+            "image1 image2 cell3-one"
+           "image3 image4 cell3-second";
+}
+
+.img-and-advertisement-container .img1,
+.img-and-advertisement-container .img2,
+.img-and-advertisement-container .img3,
+.img-and-advertisement-container .img4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+img:hover{
+    transform: scale(1.5);
+}
+
+.img-and-advertisement-container .img1 {
     grid-area: image1;
-    width: 100%;
-    height: 75%;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
-.one .img2 {
+.img-and-advertisement-container .img2 {
     grid-area: image2;
-    width: 100%;
-    height: 75%;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
-.second {
-    overflow: hidden;
-    background-color: yellow;
-    height: 250px;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 30fr 30fr 10fr;
-    grid-template-areas: "image3 image4 .";
-}
-
-
-.second .img3 {
+.img-and-advertisement-container .img3 {
     grid-area: image3;
-    width: 100%;
-    height: 46%;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
-.second .img4 {
+.img-and-advertisement-container .img4 {
     grid-area: image4;
-    width: 100%;
-    height: 46%;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
+.cell3-one {
+    grid-area: cell3-one;
+    background-color: var(--elements-bg-color);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+    border-radius: 20px 20px 0 0;
+}
 
-.four {
-    background-color: red;
+.cell3-second {
+    grid-area: cell3-second;
+    background-color: var(--elements-bg-color);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 -70px 20px -12px inset, rgba(0, 0, 0, 0.3) 0 40px 70px -40px inset;
+    border-radius: 0 0 20px 20px;
+}
+
+.advertisement-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    transform: rotate(90deg) translateX(250px);
+}
+
+.sections-with-text-container {
     height: 200px;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(3, 1fr);
 }
 
+.sections-with-text-container > div {
+    overflow: auto;
+    background-color: var(--white-text-color);
+    color: black;
+    padding: 5px;
+}
+
 footer {
-    background-color: darkblue;
-    height: 100px;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
+    font-size: 14px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+footer ul a {
+    transition: all 0.2s;
+}
+
+footer ul a:hover {
+    color: var(--main-bg-color);
+}
+
+label {
+    align-items: center;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: auto;
+}
+
+input {
+    width: 20rem;
+    height: 3rem;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    color: black;
+}
+
+input:focus {
+    outline: none;
+}
+
+a {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 42px;
+}
+
+.fixed {
+    position: fixed;
+    right: 210px;
+    top: -7px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--main-bg-color);
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+    color: black;
+    font-weight: 500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.fixed:hover {
+    border-radius: 40px;
+    width: 200px;
+}
+
+.hover-fixed-text {
+    display: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+    color: black;
+}
+
+.fixed:hover .hover-fixed-text {
+    display: inline;
+    margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    header, footer {
+        grid-template-columns: 1fr;
+    }
+
+    .img-and-advertisement-container {
+        grid-template-rows: 250px 250px 250px 250px 200px;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        grid-template-areas:
+            "image1"
+            "image2"
+            "image3"
+            "image4"
+            "cell3-one";
+    }
+
+    .cell3-one {
+        grid-area: cell3-one;
+        background-color: var(--elements-bg-color);
+        border-radius: 20px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0 18px 36px -18px inset;
+        height: 200px;
+    }
+
+    .advertisement-text-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        transform: rotate(1turn) translateY(90px);
+    }
+
+    .cell3-second {
+        display: none;
+    }
+
+    .sections-with-text-container{
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 5px;
+    }
+
+    .sections-with-text-container > div{
+        height: 200px;
+        overflow: auto;
+    }
+
+    .fixed {
+        position: fixed;
+        right: 80px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--main-bg-color);
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        color: black;
+        font-weight: 500;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: all 0.2s;
+        overflow: hidden;
+        z-index: 1;
+    }
 }
